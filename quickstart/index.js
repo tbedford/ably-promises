@@ -8,8 +8,7 @@ const ablyRealtimePromiseExample = async () => {
     try {
         await ably.connection.once('connected');
         console.log('connected');
-    }
-    catch (error){
+    } catch (error) {
         console.error(error);
     }
 
