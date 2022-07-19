@@ -1,12 +1,12 @@
 // Create the client
 const Ably = require('ably/promises');
-const client = new Ably.Realtime.Promise({ authUrl: 'https://ably.com/ably-auth/token/docs' });
+const ably = new Ably.Realtime.Promise({ authUrl: 'https://ably.com/ably-auth/token/docs' });
 
 const ablyRealtimePromiseExample = async () => {
 
     // Connect to Ably
     try {
-        await client.connection.once('connected');
+        await ably.connection.once('connected');
         console.log('connected');
     }
     catch (error){
@@ -14,7 +14,7 @@ const ablyRealtimePromiseExample = async () => {
     }
 
     // get the channel to subscribe to
-    const channel = client.channels.get('myChannel');
+    const channel = ably.channels.get('quickstart');
 
     // Subscribe to a channel
     // the promise resolves when the channel is attached (and resolves synchronously
@@ -24,13 +24,13 @@ const ablyRealtimePromiseExample = async () => {
     });
 
     // Publish a message
-    await channel.publish('greeting', 'message 1');
+    await channel.publish('greeting', 'hello!');
 
-    /*
+    // wait to receive messages and then shut down
     setTimeout(() => {
         console.log("Goodbye World!");
-        client.close();
-    }, 5000);*/
+        ably.close();
+    }, 3000);
 };
 
 ablyRealtimePromiseExample();
