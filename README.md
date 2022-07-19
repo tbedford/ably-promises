@@ -24,7 +24,10 @@ catch (error){
 ### Subscribe to a Channel
 
 ``` javascript
+// get the channel to subscribe to
 const channel = client.channels.get('myChannel');
+
+// the promise resolves when the channel is attached (and resolves synchronously if the channel is already attached)
 await channel.subscribe('greeting', (message) => {
   console.log('Message is ==> '+ message.data)
 });
