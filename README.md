@@ -38,3 +38,7 @@ await channel.subscribe('greeting', (message) => {
 ``` javascript
 await channel.publish('greeting', 'message 1');
 ```
+
+### Complete code
+
+See [here](./quickstart/index.js) for the complete code example.
