@@ -1,6 +1,6 @@
-# Using promise interface with Ably JS and Node clients
+# Using promise interface with Ably JavaScript and Node clients
 
-This repo contains some examples of using the Ably promises interface for JS and Node.
+This repo contains some examples of using the Ably promises interface with the JavaScript and Node clients.
 
 ## Create the client
 
@@ -33,5 +33,5 @@ await channel.subscribe('greeting', (message) => {
 ## Publish a message
 
 ``` javascript
-  await channel.publish('greeting', 'message 1');
+await channel.publish('greeting', 'message 1');
 ```
