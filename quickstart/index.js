@@ -23,14 +23,17 @@ const ablyRealtimePromiseExample = async () => {
         console.log('Message is ==> '+ message.data)
     });
 
-    // Publish a message
+    // Publish a message or two
+    await channel.publish('greeting', 'hello!');
+    await channel.publish('greeting', 'hello!');
     await channel.publish('greeting', 'hello!');
 
-    // wait to receive messages and then shut down
+    // wait to receive all messages and then shut down
     setTimeout(() => {
-        console.log("Goodbye World!");
+        console.log("Closing connections...");
         ably.close();
-    }, 3000);
+        console.log('closed');
+    }, 2000);    
 };
 
 ablyRealtimePromiseExample();
