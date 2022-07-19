@@ -29,7 +29,7 @@ const ablyRealtimePromiseExample = async () => {
 
     // wait to receive all messages and then shut down
     setTimeout(() => {
-        console.log("Closing connections...");
+        console.log("Closing connection...");
         ably.close();
         console.log('closed');
     }, 2000);    
